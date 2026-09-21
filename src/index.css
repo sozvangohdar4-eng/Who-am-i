@@ -16,6 +16,19 @@ body {
   overscroll-behavior: none;
 }
 
+/* Hide the scrollbar visually while keeping it fully scrollable (home screen) */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chromium, Safari, WebKit */
+  width: 0;
+  height: 0;
+}
+
+
 @keyframes pop {
   0% {
     transform: scale(0.7);

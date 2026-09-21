@@ -81,6 +81,13 @@ export default function App() {
     }
   }, [screen]);
 
+  // Hide the scrollbar on the home screen only — scrolling itself stays functional
+  useEffect(() => {
+    const targets = [document.documentElement, document.body];
+    targets.forEach((el) => el.classList.toggle("scrollbar-none", screen === "home"));
+    return () => targets.forEach((el) => el.classList.remove("scrollbar-none"));
+  }, [screen]);
+
   useEffect(() => {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
   }, [settings]);
